@@ -77,7 +77,7 @@ Esempio di risposta:
 - Invia una richiesta POST a http://localhost:8080/api/product con body JSON.
 - Verifica i dati in GET /api/product
 
-Autore 
+#Autore 
 Ricardo Dev
 email: lucycalderon477@gmail.com
 Progetto di test - 2025
