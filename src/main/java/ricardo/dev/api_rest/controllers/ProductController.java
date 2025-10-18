@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import ricardo.dev.api_rest.dto.ProductInsertResult;
 import ricardo.dev.api_rest.models.Product;
 import ricardo.dev.api_rest.services.ProductService;
-
 
 import java.util.List;
 
@@ -15,7 +16,6 @@ import java.util.List;
 @RequestMapping("/api/product")
 public class ProductController {
     private final ProductService service;
-    
 
     public ProductController(ProductService service) {
         this.service = service;
@@ -27,9 +27,10 @@ public class ProductController {
     }
 
     @PostMapping
-    public String setProduct(@RequestBody Product newProduct){
-        service.add(newProduct); 
-        return "Product added"; 
+    public List<ProductInsertResult> setProduct(@RequestBody List<Product> newProducts) {
+
+        return service.add(newProducts);
+
     }
 
 }
