@@ -29,14 +29,21 @@ public class ProductService {
         List<ProductInsertResult> results = new ArrayList<>();
         for (Product product : newProducts) {
             boolean exists = repo.findByName(product.getName()).isPresent();
-            if(exists)
-                results.add(new ProductInsertResult(product.getName(),false,"Already exists"));
-            else{
-                repo.save(product); 
-                results.add(new ProductInsertResult(product.getName(),true,"Inserted"));
+            if (exists)
+                results.add(new ProductInsertResult(product.getName(), false, "Already exists"));
+            else {
+                repo.save(product);
+                results.add(new ProductInsertResult(product.getName(), true, "Inserted"));
             }
         }
 
         return results;
+    }
+
+    public void deleteProduct(Long id) {
+        if (!repo.existsById(id)) {
+
+        }
+        repo.deleteById(id);
     }
 }
